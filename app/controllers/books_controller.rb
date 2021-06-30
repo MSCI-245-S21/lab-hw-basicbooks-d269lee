@@ -17,9 +17,7 @@ class BooksController < ApplicationController
   end
 
 
-    
-
-  def new
+   def new
       @book = Book.new
   end
 
@@ -35,8 +33,12 @@ class BooksController < ApplicationController
   def update
   end
 
-  def destroy
+    def destroy
+    @book = Book.find params[:id]
+    @book.destroy
+    redirect_to books_url, notice: 'Book was successfully destroyed.'
   end
+
 end
 
 
