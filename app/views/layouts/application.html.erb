@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basicbooks</title>
+    <title>Dana Lee's BasicBooks App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +9,16 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+   <body>
+   <%# Modified from: https://stackoverflow.com/questions/9390778/best-practice-method-of-displaying-flash-messages %>
+   
+   <% flash.each do |key, value| %>
+     <%= content_tag :div, value, id: "#{key}" %>
+   <% end %>      
+     
+   <%= yield %>
+ </body>
 </html>
+
+
+
