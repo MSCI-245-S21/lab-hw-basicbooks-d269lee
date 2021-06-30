@@ -5,16 +5,19 @@ class BooksController < ApplicationController
       @books = Book.all
   end
 
-  def update
-    @book = Book.find params[:id]
+    def create
     book_params = params.require(:book).permit(:title, :author, :rating)
-    if @book.update(book_params)
-      redirect_to @book, notice: 'Book was successfully updated.'
-      return
-    else
-      render :edit
-    end
+    @book = Book.new(book_params)
+
+        if @book.save
+          redirect_to @book, notice: 'Book was successfully created.'
+          return
+        else
+          render :new
+        end
   end
+
+
 
 
    def new
@@ -30,7 +33,15 @@ class BooksController < ApplicationController
      @book = Book.find params[:id] 
   end
 
-  def update
+   def update
+    @book = Book.find params[:id]
+    book_params = params.require(:book).permit(:title, :author, :rating)
+        if @book.update(book_params)
+          redirect_to @book, notice: 'Book was successfully updated.'
+          return
+        else
+          render :edit
+        end
   end
 
     def destroy
