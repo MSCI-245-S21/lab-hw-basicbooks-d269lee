@@ -3,4 +3,15 @@
     <tr><td>Title:</td><td><%= @book.title %></td></tr>
     <tr><td>Author:</td><td><%= @book.author %></td></tr>
     <tr><td>Rating:</td><td><%= @book.rating %></td></tr>
+    
+      <tbody>
+    
+      <td><%= link_to "Home", root_path %></td>
+      <td><%= link_to "List of books", books_path %></td>
+      <td><%= link_to "Edit this book", edit_book_path %></td>
+        <td><%= link_to "Delete Book", confirm_delete_book_path %></td>  
+       
+  </tbody>
+    
+    
 </table>
