@@ -1,0 +1,13 @@
+
+  
+<h1>Delete Books</h1>
+
+<p>Do you really want to delete <%= @book.title %>?</p>
+
+
+    <td><%= form_with model: @book, local: true, method: 'delete' do |f| %>
+                 <%= f.submit "Delete" %>     
+             <% end %></td>
+    
+     
+    <td><%= link_to "Cancel delete", book_path %></td>
